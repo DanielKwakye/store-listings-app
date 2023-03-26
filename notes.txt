@@ -2,3 +2,4 @@
 - Comment your codes
 - create builds for every platform from the begining of the project
 - Write unit tests
+- Remove all unnecessary codes

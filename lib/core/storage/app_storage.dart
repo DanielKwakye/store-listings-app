@@ -12,7 +12,10 @@ class AppStorage {
   static UserModel? currentUserSession;
 
 // Create storage
-  static const storage =  FlutterSecureStorage();
+  static AndroidOptions _getAndroidOptions() => const AndroidOptions(
+    encryptedSharedPreferences: true,
+  );
+  static final storage =  FlutterSecureStorage(aOptions: _getAndroidOptions());
 
   static const String _authToken = "accessToken";
 
