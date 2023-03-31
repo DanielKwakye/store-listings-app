@@ -161,46 +161,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.2"
-  camera:
-    dependency: "direct main"
-    description:
-      name: camera
-      sha256: "3ad71371b8168a4c8012c0b40a53c05afc75d46cc688b0f37b4611a841d47b25"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.9.8+1"
-  camera_android:
-    dependency: transitive
-    description:
-      name: camera_android
-      sha256: "665d62c1f334722c7519ca5d3b94ad68ecaa801691870602da5638a42c1fff67"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.9.8+3"
-  camera_avfoundation:
-    dependency: transitive
-    description:
-      name: camera_avfoundation
-      sha256: "7ac8b950672716722af235eed7a7c37896853669800b7da706bb0a9fd41d3737"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.9.13+1"
-  camera_platform_interface:
-    dependency: transitive
-    description:
-      name: camera_platform_interface
-      sha256: "525017018d116c5db8c4c43ec2d9b1663216b369c9f75149158280168a7ce472"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.5.0"
-  camera_web:
-    dependency: transitive
-    description:
-      name: camera_web
-      sha256: "18cdbee5441e9a6fb129fdd9b68a06d1b8c5236932ba97d5faeaefe80db2e5bd"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.1+6"
   characters:
     dependency: transitive
     description:
@@ -937,14 +897,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.1.0"
-  photo_manager:
-    dependency: "direct main"
-    description:
-      name: photo_manager
-      sha256: bdc4ab1fa9fb064d8ccfea6ab44119f55b220293d7ce2e19eb5a5f998db86c88
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.6.0"
   photo_view:
     dependency: "direct main"
     description:

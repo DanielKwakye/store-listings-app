@@ -21,25 +21,25 @@ final router = GoRouter(
 
   debugLogDiagnostics: true,
   navigatorKey: _rootNavigator,
-  redirect: (BuildContext context, state) async {
-    final List<String> guestRoutes = [
-      indexPageRoute,
-      authPageRoute,
-      accountPageRoute,
-      kycPageRoute
-    ];
-    // check if user has loggedIn
-    final AuthRepository authRepository = sl<AuthRepository>();
-    final loggedIn = await authRepository.getCurrentLoggedInUser();
-
-    // if user is not logged in and user is not navigating to a guest route
-    if (!guestRoutes.contains(state.subloc) && !loggedIn) {
-      return authPageRoute;
-    }
-
-    return null;
-
-  },
+  // redirect: (BuildContext context, state) async {
+  //   final List<String> guestRoutes = [
+  //     indexPageRoute,
+  //     authPageRoute,
+  //     accountPageRoute,
+  //     kycPageRoute
+  //   ];
+  //   // check if user has loggedIn
+  //   final AuthRepository authRepository = sl<AuthRepository>();
+  //   final loggedIn = await authRepository.getCurrentLoggedInUser();
+  //
+  //   // if user is not logged in and user is not navigating to a guest route
+  //   if (!guestRoutes.contains(state.subloc) && !loggedIn) {
+  //     return authPageRoute;
+  //   }
+  //
+  //   return null;
+  //
+  // },
   initialLocation: indexPageRoute,
   routes: [
 

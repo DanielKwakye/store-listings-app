@@ -43,14 +43,15 @@ class AccountDrawerPage extends StatelessWidget {
                const SizedBox(height: 30,),
                ListTile(
                   leading: Icon(FeatherIcons.layout, color: routeLocation != kycPageRoute && state.menuOption == AccountMenuOption.dashboard ? kAppRed : kAppBlack,),
-                  title: Text('Dashboard', style: TextStyle(fontSize: 14, color: routeLocation != kycPageRoute && state.menuOption == AccountMenuOption.dashboard ? kAppRed : kAppBlack),),
+                  title: Text('Website', style: TextStyle(fontSize: 14, color: routeLocation != kycPageRoute && state.menuOption == AccountMenuOption.dashboard ? kAppRed : kAppBlack),),
                   horizontalTitleGap: 0,
                   contentPadding: const EdgeInsets.symmetric(horizontal: 40, vertical: 5),
                  onTap: () {
-                   if(routeLocation == kycPageRoute){
-                     context.go(accountPageRoute);
-                   }
-                   context.read<AccountCubit>().activateMenu(option: AccountMenuOption.dashboard);
+                   // if(routeLocation == kycPageRoute){
+                   //
+                   // }
+                   context.go(indexPageRoute);
+                   // context.read<AccountCubit>().activateMenu(option: AccountMenuOption.dashboard);
                    onItemTap?.call(AccountMenuOption.dashboard);
                  },
                 ),

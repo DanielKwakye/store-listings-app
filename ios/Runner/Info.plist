@@ -49,5 +49,9 @@
 		<true/>
 		<key>UIStatusBarHidden</key>
 		<true/>
+		<key>NSCameraUsageDescription</key>
+        <string>Grant access to the photo library to upload documents from the device</string>
+        <key>NSPhotoLibraryUsageDescription</key>
+        <string>Grant access to the photo library to upload documents from the device</string>
 	</dict>
 </plist>

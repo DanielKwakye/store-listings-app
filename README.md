@@ -4,13 +4,14 @@ Paperless Listings
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+You can test on any OS by downloading the appropriate link below
 
-A few resources to get you started if this is your first Flutter project:
+## Android release Link
+https://drive.google.com/file/d/1aD5tCYRsyy1SnO7xqTbukNAObqRHFFSY/view?usp=sharing
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Web release Link
+https://danny-paperless.web.app/#/
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## MacOS release Link
+https://drive.google.com/file/d/1uSt7ZnPz10ciczz_jjWUulfuHTQOSLBN/view?usp=sharing
+

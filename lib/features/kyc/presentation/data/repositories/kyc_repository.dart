@@ -20,11 +20,11 @@ class KYCRepository {
 
       Map<String,dynamic> uploadData = {
         "upload_preset": 'ix8u70vl',
-        // "file": [
-        //   asFile ? await MultipartFile.fromFile(frontFile!.path) :  MultipartFile.fromBytes(frontFileAsBytes!),
-        //   asFile ? await MultipartFile.fromFile(backFile!.path) :  MultipartFile.fromBytes(backFileAsBytes!),
-        // ],
-        "file": asFile ? await MultipartFile.fromFile(frontFile!.path) :  MultipartFile.fromBytes(frontFileAsBytes!)
+        "file": [
+          asFile ? await MultipartFile.fromFile(frontFile!.path) :  MultipartFile.fromBytes(frontFileAsBytes!),
+          asFile ? await MultipartFile.fromFile(backFile!.path) :  MultipartFile.fromBytes(backFileAsBytes!),
+        ],
+        // "file": asFile ? await MultipartFile.fromFile(frontFile!.path) :  MultipartFile.fromBytes(frontFileAsBytes!)
       };
 
       FormData formData = FormData.fromMap(uploadData);

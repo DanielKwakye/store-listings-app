@@ -9,7 +9,7 @@ Future<void> main() async {
 
   // Here we set the URL strategy for our web app.
   // It is safe to call this function when running on mobile or desktop as well.
-  setPathUrlStrategy();
+  // setPathUrlStrategy();
 
   // Ensure all dependencies are initialized
   WidgetsFlutterBinding.ensureInitialized();

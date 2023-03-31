@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
-import 'package:file_selector/file_selector.dart';
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:paperless_listings/features/global/presentation/widgets/global_border_widget.dart';

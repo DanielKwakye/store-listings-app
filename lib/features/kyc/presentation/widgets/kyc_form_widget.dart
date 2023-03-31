@@ -282,6 +282,8 @@ class KYCFormWidgetController extends State<KYCFormWidget> with FileUploadMixin 
     kycStateStreamSubscription = kycCubit.stream.listen((event) {
       if(event.status == BlocStatus.uploadingIDSuccessful) {
         errorText.value = "Upload successful";
+        frontIdImage.value = null;
+        backIdImage.value = null;
       }
       if(event.status == BlocStatus.uploadingIDFailed) {
         errorText.value = "Upload Failed";
