@@ -18,7 +18,7 @@ class IndexMenuBarMobileWidget extends StatefulWidget {
 
 class _IndexMenuBarMobileWidgetState extends State<IndexMenuBarMobileWidget> {
   final controller = DraggableScrollableController();
-  final minChildSize = 0.07;
+  final minChildSize = 0.1;
   final maxChildSize = 0.5;
   bool expanded = false;
 
@@ -50,86 +50,82 @@ class _IndexMenuBarMobileWidgetState extends State<IndexMenuBarMobileWidget> {
                 color: kAppRed,
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(4), topRight: Radius.circular(4))
               ),
-              child: Stack(
-                 children: [
+              child: ListView(
+                padding: EdgeInsets.zero,
+                controller: controller,
+                physics: const ClampingScrollPhysics(),
+                children: [
 
-                     ListView(
-                       controller: controller,
-                       physics: const ClampingScrollPhysics(),
-                       children: [
+                  if(!expanded) ... {
+                    BlocBuilder<IndexCubit, IndexState>(
+                      builder: (context, indexState) {
+                        return ListTile(
+                          title: Text(indexState.menuOption.name.capitalize(), style: const TextStyle(color: kAppWhite),),
+                          tileColor: kAppRed,
+                          onTap: () {
+                            animatedExpand();
+                          },
+                          trailing: const Icon(Icons.keyboard_arrow_up , color:  kAppWhite,),
+                        );
+                      },
+                    )
+                  },
 
-                         if(!expanded) ... {
-                           BlocBuilder<IndexCubit, IndexState>(
-                             builder: (context, indexState) {
-                               return ListTile(
-                                 title: Text(indexState.menuOption.name.capitalize(), style: const TextStyle(color: kAppWhite),),
-                                 tileColor: kAppRed,
-                                 onTap: () {
-                                   animatedExpand();
-                                 },
-                                 trailing: const Icon(Icons.keyboard_arrow_up , color:  kAppWhite,),
-                               );
-                             },
-                           )
-                         },
+                  if(expanded)
+                    ListTile(
+                      title: const Text('Menu', style: TextStyle(color: kAppWhite),),
+                      onTap: () {
+                        context.read<IndexCubit>().activateMenu(option: IndexMenuOption.about);
+                        animatedHide();
+                      },
+                      trailing: const Icon(Icons.keyboard_arrow_down , color:  kAppWhite,),
+                    ),
+                  if(expanded)
+                    const GlobalBorderWidget(paddingTop: 10, paddingBottom: 10, color: kAppWhite,),
 
-                         if(expanded)
-                         ListTile(
-                           title: const Text('Menu', style: TextStyle(color: kAppWhite),),
-                           onTap: () {
-                             context.read<IndexCubit>().activateMenu(option: IndexMenuOption.about);
-                             animatedHide();
-                           },
-                           trailing: const Icon(Icons.keyboard_arrow_down , color:  kAppWhite,),
-                         ),
-                         if(expanded)
-                         const GlobalBorderWidget(paddingTop: 10, paddingBottom: 10, color: kAppWhite,),
-
-                         ListTile(
-                           title: const Text('About', style: TextStyle(color: kAppWhite),),
-                           onTap: () {
-                             context.read<IndexCubit>().activateMenu(option: IndexMenuOption.about);
-                             animatedHide();
-                           },
-                         ),
-                         ListTile(
-                           title: const Text('Our menu', style: TextStyle(color: kAppWhite),),
-                           onTap: () {
-                             context.read<IndexCubit>().activateMenu(option: IndexMenuOption.menu);
-                             animatedHide();
-                           },
-                         ),
-                         ListTile(
-                           title: const Text('Features', style: TextStyle(color: kAppWhite),),
-                           onTap: () {
-                             context.read<IndexCubit>().activateMenu(option: IndexMenuOption.features);
-                             animatedHide();
-                           },
-                         ),
-                         ListTile(
-                           title: const Text('FAQ', style: TextStyle(color: kAppWhite),),
-                           onTap: () {
-                             context.read<IndexCubit>().activateMenu(option: IndexMenuOption.faq);
-                             animatedHide();
-                           },
-                         ),
-                         ListTile(
-                           title: const Text('Reviews', style: TextStyle(color: kAppWhite),),
-                           onTap: () {
-                             context.read<IndexCubit>().activateMenu(option: IndexMenuOption.reviews);
-                             animatedHide();
-                           },
-                         ),
-                         ListTile(
-                           title: const Text('Gallery', style: TextStyle(color: kAppWhite),),
-                           onTap: () {
-                             context.read<IndexCubit>().activateMenu(option: IndexMenuOption.gallery);
-                             animatedHide();
-                           },
-                         ),
-                       ],)
-                 ],
-              ),
+                  ListTile(
+                    title: const Text('About', style: TextStyle(color: kAppWhite),),
+                    onTap: () {
+                      context.read<IndexCubit>().activateMenu(option: IndexMenuOption.about);
+                      animatedHide();
+                    },
+                  ),
+                  ListTile(
+                    title: const Text('Our menu', style: TextStyle(color: kAppWhite),),
+                    onTap: () {
+                      context.read<IndexCubit>().activateMenu(option: IndexMenuOption.menu);
+                      animatedHide();
+                    },
+                  ),
+                  ListTile(
+                    title: const Text('Features', style: TextStyle(color: kAppWhite),),
+                    onTap: () {
+                      context.read<IndexCubit>().activateMenu(option: IndexMenuOption.features);
+                      animatedHide();
+                    },
+                  ),
+                  ListTile(
+                    title: const Text('FAQ', style: TextStyle(color: kAppWhite),),
+                    onTap: () {
+                      context.read<IndexCubit>().activateMenu(option: IndexMenuOption.faq);
+                      animatedHide();
+                    },
+                  ),
+                  ListTile(
+                    title: const Text('Reviews', style: TextStyle(color: kAppWhite),),
+                    onTap: () {
+                      context.read<IndexCubit>().activateMenu(option: IndexMenuOption.reviews);
+                      animatedHide();
+                    },
+                  ),
+                  ListTile(
+                    title: const Text('Gallery', style: TextStyle(color: kAppWhite),),
+                    onTap: () {
+                      context.read<IndexCubit>().activateMenu(option: IndexMenuOption.gallery);
+                      animatedHide();
+                    },
+                  ),
+                ],),
             );
           }
       ),

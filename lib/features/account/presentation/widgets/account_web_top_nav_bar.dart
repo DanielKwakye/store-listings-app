@@ -12,6 +12,7 @@ class AccountWebTopNavBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    final routePath = GoRouter.of(context).location;
     final hPadding = horizontalPadding(context);
 
     return AppBar(
@@ -31,11 +32,11 @@ class AccountWebTopNavBarWidget extends StatelessWidget {
               spacing: 20,
               children: [
                 GlobalInActiveMenuButton(label: 'Home', onPressed: () => context.go(indexPageRoute),),
-                GlobalInActiveMenuButton(label: 'Explore', onPressed: () => context.go(notFoundSubPageRoute),),
+                routePath == accountPageRoute ? GlobalActiveMenuButton(label: 'Account', onPressed: () => context.go(accountPageRoute),) : GlobalInActiveMenuButton(label: 'Account', onPressed: () => context.go(accountPageRoute),),
                 GlobalInActiveMenuButton(label: 'Blog', onPressed: () => context.go(notFoundSubPageRoute),),
                 GlobalInActiveMenuButton(label: 'FAQ', onPressed: () => context.go(notFoundSubPageRoute),),
-                GlobalInActiveMenuButton(label: 'KYC', onPressed: () => context.go(notFoundSubPageRoute),),
-                GlobalActiveMenuButton(label: '+ Add Listings', onPressed: () => context.go(notFoundSubPageRoute),),
+                routePath == kycPageRoute ? GlobalActiveMenuButton(label: 'KYC', onPressed: () => context.go(kycPageRoute),) : GlobalInActiveMenuButton(label: 'KYC', onPressed: () => context.go(kycPageRoute),),
+                GlobalInActiveMenuButton(label: '+ Add Listings', onPressed: () => context.go(kycPageRoute),) ,
               ],
             ),
           ),

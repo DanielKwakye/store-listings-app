@@ -40,7 +40,7 @@ class _AuthFormWidgetView extends WidgetView<AuthFormWidget, AuthFormWidgetContr
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: isMobile ? 40 : size.height / 10,),
+                SizedBox(height: isMobile ? 10 : size.height / 10,),
                 const GlobalBrandLogo(),
                 SizedBox(height: isMobile ? 20 : 40,),
                 GlobalTextFieldWidget(label: isMobile ? '' : 'Email', placeHolder: 'Enter email'),

@@ -61,7 +61,7 @@ class PluginItemWidget extends StatelessWidget {
   }
 
   Widget buttonToEnable() {
-    return GlobalButtonWidget(text: 'Disable', appearance: Appearance.clean, onPressed: () {
+    return GlobalButtonWidget(text: 'Disable', appearance: Appearance.clean, outlineColor: kAppRed, onPressed: () {
     },);
 
   }

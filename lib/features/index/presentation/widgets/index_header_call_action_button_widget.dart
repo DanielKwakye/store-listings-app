@@ -1,5 +1,7 @@
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:paperless_listings/app/routing/route_constants.dart';
 import 'package:paperless_listings/core/utils/functions.dart';
 import 'package:paperless_listings/core/utils/theme.dart';
 import 'package:paperless_listings/features/global/presentation/widgets/global_button_widget.dart';
@@ -17,18 +19,19 @@ class IndexHeaderCallActionButtonWidget extends StatelessWidget {
     return deviceType == DeviceScreenType.mobile ?
      ClipRRect(
        borderRadius: BorderRadius.circular(100),
-       child: ColoredBox(
+       child: Container(
          color: kAppRed,
-         child: IconButton(
-             onPressed: handleCallAction, icon: const Icon(FeatherIcons.phoneCall, size: 18,),
+         padding: const EdgeInsets.all(10),
+         child: GestureDetector(
+             onTap: () => handleCallAction(context), child: const Icon(FeatherIcons.phoneCall, size: 18,),
          ),
        ),
      )   
-     : GlobalButtonWidget(text: 'Call Now', onPressed: handleCallAction, showOutline: false,);
+     : GlobalButtonWidget(text: 'Call Now', onPressed: () => handleCallAction(context), showOutline: false,);
     
   }
   
-  void handleCallAction() {
-    
+  void handleCallAction(BuildContext context) {
+    context.push(authPageRoute);
   }
 }

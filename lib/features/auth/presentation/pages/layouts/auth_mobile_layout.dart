@@ -10,9 +10,10 @@ class AuthMobileLayout extends StatelessWidget {
     final hPadding = horizontalPadding(context);
 
     return Scaffold(
+      appBar: AppBar(backgroundColor: themeOf(context).colorScheme.background, elevation: 0,),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: hPadding),
-        child: AuthFormWidget(),
+        child: const AuthFormWidget(),
       ),
     );
   }

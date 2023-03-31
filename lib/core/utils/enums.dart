@@ -51,6 +51,8 @@ enum BlocStatus {
 
   activateAccountMenuOptionInProgress, activateAccountMenuOptionCompleted,
 
+  uploadingIDInProgress, uploadingIDSuccessful, uploadingIDFailed
+
 
 }
 

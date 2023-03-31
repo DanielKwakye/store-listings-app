@@ -29,7 +29,6 @@ class AccountMobileLayout extends StatelessWidget {
     final theme = themeOf(context);
     final size = sizeOfMediaQuery(context);
 
-
     return Scaffold(
       drawer: Drawer(
         child: AccountDrawerPage(onItemTap: (option) {

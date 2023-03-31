@@ -18,9 +18,10 @@ class IndexHeaderAccountActionButtonWidget extends StatelessWidget {
     return deviceType == DeviceScreenType.mobile ?
     ClipRRect(
       borderRadius: BorderRadius.circular(100),
-      child: ColoredBox(
+      child: Container(
           color: kAppRed,
-          child: IconButton(onPressed: () => handleCallAction(context), icon: const Icon(FeatherIcons.user, size: 18,))),
+          padding: const EdgeInsets.all(10),
+          child: GestureDetector(onTap: () => handleCallAction(context), child: const Icon(FeatherIcons.user, size: 18,))),
     )
         : GlobalButtonWidget(text: 'Login Now', onPressed: () => handleCallAction(context), showOutline: false,);
   }

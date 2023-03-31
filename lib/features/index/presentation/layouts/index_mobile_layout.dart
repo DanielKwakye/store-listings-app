@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animator/widgets/sliding_entrances/slide_in_up.dart';
 import 'package:paperless_listings/core/utils/theme.dart';
 import 'package:paperless_listings/features/global/presentation/widgets/global_border_widget.dart';
 import 'package:paperless_listings/features/index/presentation/widgets/index_body_widget.dart';
@@ -33,7 +34,6 @@ class _IndexMobileLayoutView extends WidgetView<IndexMobileLayout, IndexMobileLa
     final hPadding = horizontalPadding(context);
 
     return Scaffold(
-      
         body: Stack(
           children: [
 
@@ -95,6 +95,7 @@ class IndexMobileLayoutController extends State<IndexMobileLayout> {
   void initState() {
     super.initState();
     scrollController = ScrollController();
+
   }
 
 

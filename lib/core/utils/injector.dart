@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:paperless_listings/features/auth/data/repositories/auth_repository.dart';
 import 'package:paperless_listings/features/gallery/data/repositories/gallery_repository.dart';
+import 'package:paperless_listings/features/kyc/presentation/data/repositories/kyc_repository.dart';
 import '../network/network_provider.dart';
 
 /// Using Get It as the service locator -> for dependency injections
@@ -20,6 +21,7 @@ Future<void> init() async {
   //! Repositories
   sl.registerLazySingleton(() => AuthRepository());
   sl.registerLazySingleton(() => GalleryRepository());
+  sl.registerLazySingleton(() => KYCRepository());
 
 
    sl.registerLazySingleton(() => NetworkProvider());

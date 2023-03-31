@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:paperless_listings/features/account/data/store/account_cubit.dart';
 import 'package:paperless_listings/features/gallery/data/store/gallery_cubit.dart';
 import 'package:paperless_listings/features/index/data/store/index_cubit.dart';
+import 'package:paperless_listings/features/kyc/presentation/data/store/kyc_cubit.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import '../core/utils/functions.dart';
 import '../core/utils/theme.dart';
@@ -34,6 +35,7 @@ class App extends StatelessWidget {
               BlocProvider(create: (context) => GalleryCubit()),
               BlocProvider(create: (context) => IndexCubit()),
               BlocProvider(create: (context) => AccountCubit()),
+              BlocProvider(create: (context) => KYCCubit()),
             ],
             child: MaterialApp.router(
               title: 'Paperless Listings',

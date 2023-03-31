@@ -34,6 +34,7 @@ class _IndexHeaderWidgetView extends WidgetView<IndexHeaderWidget, IndexHeaderWi
     final theme = themeOf(context);
     final size = sizeOfMediaQuery(context);
     final DeviceScreenType deviceType = getDeviceType(size);
+    final isMobile = deviceType == DeviceScreenType.mobile;
     final double expandedHeight =  deviceType == DeviceScreenType.mobile ?  (size.height * 0.4) : size.height;
     state.expandedHeight = expandedHeight;
     final hPadding = horizontalPadding(context);
@@ -49,7 +50,7 @@ class _IndexHeaderWidgetView extends WidgetView<IndexHeaderWidget, IndexHeaderWi
         pinned: true,
         floating: true,
         elevation: 1,
-        toolbarHeight: state.toolBarHeight,
+        toolbarHeight: isMobile ? kToolbarHeight : state.toolBarHeight,
         flexibleSpace: Stack(
           children: [
             FlexibleSpaceBar(
@@ -82,19 +83,12 @@ class _IndexHeaderWidgetView extends WidgetView<IndexHeaderWidget, IndexHeaderWi
           ],
         ),
         actions: [
-          UnconstrainedBox(
-            child: Padding(
-              padding:  EdgeInsets.only(right: deviceType == DeviceScreenType.mobile ? 20  : hPadding / 2),
-              child: Wrap(
-                // crossAxisAlignment: WrapCrossAlignment.center,
-                spacing: 20,
-                children: const [
-                  IndexHeaderCallActionButtonWidget(),
-                  IndexHeaderAccountActionButtonWidget()
-                ],
-              ),
-            ),
-          )
+          const UnconstrainedBox(
+            child: IndexHeaderCallActionButtonWidget(),
+          ),
+          SizedBox(width: deviceType == DeviceScreenType.mobile ? 10 : 20,),
+          const UnconstrainedBox(child: IndexHeaderAccountActionButtonWidget(),),
+          SizedBox(width: deviceType == DeviceScreenType.mobile ? 20  : hPadding / 2,)
         ],
       );
     });

@@ -12,7 +12,7 @@ class IndexPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // Construct and pass in a widget builder per screen type
     return ScreenTypeLayout.builder(
-      mobile: (BuildContext context) => IndexMobileLayout(),
+      mobile: (BuildContext context) => const IndexMobileLayout(),
       desktop: (BuildContext context) => const IndexWebLayout(),
     );
   }
