@@ -17,11 +17,11 @@ class PersistentHeader extends SliverPersistentHeaderDelegate {
   Widget build(BuildContext context, double shrinkOffset,
       bool overlapsContent) {
     final appBarSize = maxExtent - shrinkOffset;
-    // final proportion = 2 - (maxExtent / appBarSize);
+    final proportion = 2 - (maxExtent / appBarSize);
     return Theme(
       data: ThemeData.dark(),
       child: ConstrainedBox(
-        constraints: BoxConstraints(minHeight: maxExtent),
+        constraints: BoxConstraints(minHeight: proportion),
         child: child,
       ),
     );

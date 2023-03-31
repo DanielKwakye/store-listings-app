@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:paperless_listings/features/auth/data/repositories/auth_repository.dart';
+import 'package:paperless_listings/features/gallery/data/repositories/gallery_repository.dart';
 import '../network/network_provider.dart';
 
 /// Using Get It as the service locator -> for dependency injections
@@ -17,28 +18,10 @@ Future<void> init() async {
 
 
   //! Repositories
-  //  sl.registerLazySingleton(() => AuthRepository());
   sl.registerLazySingleton(() => AuthRepository());
-  // sl.registerLazySingleton(() => PayoutRepository());
-  // sl.registerLazySingleton(() => ReceiptRepository());
-  // sl.registerLazySingleton(() => TaxRepository());
-  // sl.registerLazySingleton(() => InvoiceRepository());
-  // sl.registerLazySingleton(() => ChatRepository());
-  // sl.registerLazySingleton(() => RentalRepository());
-  // sl.registerLazySingleton(() => NotificationsRepository());
+  sl.registerLazySingleton(() => GalleryRepository());
 
 
-
-  // sl.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl());
-
-  //! Data sources
-  //eg: sl.registerLazySingleton<ICacheDataSource>(() => CacheDataSourceImpl(sl()));
-
-  //! Core
-  //eg: sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
-
-  //! External
-  //eg: sl.registerLazySingleton(() => http.Client());
    sl.registerLazySingleton(() => NetworkProvider());
 
 }

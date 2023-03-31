@@ -7,6 +7,7 @@ import 'package:mime/mime.dart';
 import 'package:paperless_listings/core/utils/extensions.dart';
 import 'package:paperless_listings/core/utils/theme.dart';
 import 'package:paperless_listings/features/auth/data/repositories/auth_repository.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 
@@ -119,23 +120,6 @@ String convertToCompactFigure(double numberToFormat) {
 }
 
 
-AccountType getAccountTypeFromString(String accountType){
-  if(accountType == "driver"){
-    return AccountType.driver;
-  }else if(accountType == "student"){
-    return AccountType.student;
-  }
-  return AccountType.unknown  ;
-}
-
-Future<Object?> changeScreen(BuildContext context, String destination, { bool replace= false , dynamic args= const {} }){
-  if(replace) {
-    return Navigator.of(context).pushNamedAndRemoveUntil(destination, (Route<dynamic> route) => false, arguments: args);
-  } else {
-    return Navigator.of(context).pushNamed(destination, arguments: args);
-  }
-}
-
 String getFirstLetter(String words) {
   if(blank(words)) {
     return words;
@@ -168,21 +152,6 @@ String getInitials(String words) {
   }
 }
 
-Color getChipCardColor(String name){
-  if(name.toLowerCase().contains("uber")){
-    return Colors.black;
-  }else if(name.toLowerCase().contains("bolt")){
-    return boltGreen;
-  }else if(name.toLowerCase().contains("taxi")){
-    return Colors.amber;//Color(0xffCCA119);
-  }else if(name.toLowerCase().contains("arrears")){
-    return const Color(0xffF04A44);
-  }else if(name.toLowerCase().contains("cost")){
-    return const Color(0xff909BFA);
-  }else{
-    return Color((Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(1.0); // return random color
-  }
-}
 
 
 String formatServiceToReadable(String service){
@@ -243,30 +212,6 @@ String getFormattedDateWithIntl(DateTime date, {String format = 'MMM yyyy'}){
 }
 
 
-Future<Object?> pushScreenWithNamed(BuildContext context, String destination, { bool replaceAll = false , dynamic args = const {}, fullscreenDialog = false , rootNavigator = false}){
-  if(replaceAll) {
-    return Navigator.of(context, rootNavigator: rootNavigator ).pushNamedAndRemoveUntil(destination, (Route<dynamic> route) => false, arguments: args);
-  } else {
-    return Navigator.of(context, rootNavigator: rootNavigator ).pushNamed(destination, arguments: args);
-  }
-}
-
-Future<Object?> pushScreenWithConstructor(BuildContext context,
-    Widget classObject, { bool replaceAll = false, fullscreenDialog = false, rootNavigator = false }){
-  if(replaceAll){
-    return Navigator.of(context, rootNavigator: rootNavigator).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => classObject),
-            (Route<dynamic> route) => false
-    );
-  }else{
-    return Navigator.of(context, rootNavigator: rootNavigator ).push(MaterialPageRoute(builder: (context) => classObject, fullscreenDialog: fullscreenDialog));
-  }
-}
-
-pop<T extends Object?>(BuildContext context, [T? result]){
-  Navigator.of(context).pop(result);
-}
-
 String toCurrencyFormat(String value, {bool showCurrency = true}){
   if(double.tryParse(value) == null) {
     return value;
@@ -281,22 +226,6 @@ String toCurrencyFormat(String value, {bool showCurrency = true}){
 }
 
 
-ScreenType getScreenType(BuildContext context){
-  final size = MediaQuery.of(context).size;
-  final height = size.height;
-  final width = size.width;
-  if(width < 350 && height < 550){
-    return ScreenType.small;
-  }else if(width >= 550 && height < 700){
-    return ScreenType.medium;
-  }else{
-    return ScreenType.long;
-  }
-}
-
-dynamic goBack(BuildContext context, {dynamic args}){
-  return Navigator.of(context).pop(args);
-}
 
 bool blank(dynamic text){
   if(text is bool){
@@ -377,11 +306,16 @@ void setAppSystemOverlay({bool useThemeOverlays = true, required ThemeData theme
 
 }
 
-
-String getDeviceType() {
-  final data = MediaQueryData.fromWindow(WidgetsBinding.instance.window);
-  return data.size.shortestSide < 600 ? 'phone' :'tablet';
+double horizontalPadding(BuildContext context) {
+  final size = sizeOfMediaQuery(context);
+  final DeviceScreenType deviceType = getDeviceType(size);
+  return deviceType == DeviceScreenType.mobile ? 20.0 : size.width * 0.2;
 }
+
+// String getDeviceType() {
+//   final data = MediaQueryData.fromWindow(WidgetsBinding.instance.window);
+//   return data.size.shortestSide < 600 ? 'phone' :'tablet';
+// }
 
 ///MediaQuery Height
 Size sizeOfMediaQuery(BuildContext context) {

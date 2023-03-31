@@ -1,5 +1,4 @@
-const String galleryPageRoute = '/';
-const String faqPageRoute = '/faq';
-const String logInPageRoute = '/login-in';
+const String indexPageRoute = '/';
+const String authPageRoute = '/auth';
 const String accountPageRoute = '/account';
-const String kycPageRoute = '/kyc';
+const String notFoundSubPageRoute = '/not-found';

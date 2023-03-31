@@ -1,6 +1,9 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:paperless_listings/features/account/data/store/account_cubit.dart';
+import 'package:paperless_listings/features/gallery/data/store/gallery_cubit.dart';
+import 'package:paperless_listings/features/index/data/store/index_cubit.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import '../core/utils/functions.dart';
 import '../core/utils/theme.dart';
@@ -28,6 +31,9 @@ class App extends StatelessWidget {
             providers: [
               /// Register global providers
               BlocProvider(create: (context) => AuthCubit()),
+              BlocProvider(create: (context) => GalleryCubit()),
+              BlocProvider(create: (context) => IndexCubit()),
+              BlocProvider(create: (context) => AccountCubit()),
             ],
             child: MaterialApp.router(
               title: 'Paperless Listings',

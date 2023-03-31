@@ -2,6 +2,11 @@
 import 'package:flutter/foundation.dart';
 
 abstract class ApiConfig {
+
+  static const String catsBaseUrl = "https://api.thecatapi.com";
+
+  static const String fetchCats = '$catsBaseUrl/v1/images/search?limit=10';
+
   static const localBaseUrl = "http://127.0.0.1:8000";
   static const _kaqAdminBaseUrl = "https://live.kaqadmin.com";
   // static const String baseUrl = kReleaseMode ? "$_kaqAdminBaseUrl/driver/api" : "$localBaseUrl/driver/api";

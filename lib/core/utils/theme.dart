@@ -9,18 +9,18 @@ const kAppGray = Color(0xff666666);
 const kAppGrayInLightMode = Color(0xff666666);//Color(0xff666666);
 const kAppGrayInDarkMode = Color(0xff999999);//Color(0xff666666);
 const kAppLightGray2 = Color(0xffF6F6F6);
-const kAppLightGray = Color(0xffF7F7F7);
+const kAppLightGray = Color(0xfff7f9fa);
 const kAppWhite = Color(0xffFFFFFF);
 const kAppBlue = Color(0xff4595D0);
 // const kAppBlack = Colors.black;
 const kAppBlack = Color(0xff101010);
-const kAppRed = Color(0xffF04A44);
+const kAppRed = Color(0xffd81a60);
 const kAppGreen =  Color(0xff004c36);
 const kOutLine = Color(0xffEDF0F5);
 const kAppGold = Color(0xffE49C59);
 const kDisabledGrey = Color(0xffC4C4C4);
 const accent = Color(0xff000000); //Color(0xffda1c36);
-const primary = Color(0xffF04A44); //Colors.black;
+const primary = kAppRed; //Colors.black;
 const border = Color(0xffDEDEDE);
 const gray = Color(0xffF0F0F0);
 const ash = Color(0xff9699A8);
@@ -80,20 +80,21 @@ void setSystemUIOverlays({
 
 /// Dark Theme Mode
 darkTheme(BuildContext context) => ThemeData(
-    textTheme: Theme.of(context).textTheme.copyWith(
-      headlineMedium: const TextStyle(color: kAppWhite),
-      headlineSmall: const TextStyle(color: kAppWhite),
-      titleLarge: const TextStyle(color: kAppWhite),
-
-      bodySmall: const TextStyle(color: kAppWhite),
-      bodyMedium: const TextStyle(color: kAppWhite),
-      bodyLarge: const TextStyle(color: kAppWhite),
-      titleMedium: const TextStyle(color: kAppWhite),
-      titleSmall: const TextStyle(color: kDarkOnPrimaryColor),
-
-
-    ),
-    fontFamily: 'AppFont',
+    brightness: Brightness.dark,
+    textTheme: GoogleFonts.quicksandTextTheme(
+        Theme.of(context).textTheme
+      ),
+    //     .copyWith(
+    //   headlineMedium: const TextStyle(color: kAppWhite),
+    //   headlineSmall: const TextStyle(color: kAppWhite),
+    //   titleLarge: const TextStyle(color: kAppWhite),
+    //
+    //   bodySmall: const TextStyle(color: kAppWhite),
+    //   bodyMedium: const TextStyle(color: kAppWhite),
+    //   bodyLarge: const TextStyle(color: kAppWhite),
+    //   titleMedium: const TextStyle(color: kAppWhite),
+    //   titleSmall: const TextStyle(color: kDarkOnPrimaryColor),
+    // ),
     dividerColor: kDarkOutlineColor,
     scaffoldBackgroundColor: kDarkBackgroundColor,
     primaryColor: kDarkPrimaryColor,
@@ -105,7 +106,8 @@ darkTheme(BuildContext context) => ThemeData(
     ),
     tabBarTheme: const TabBarTheme(
       labelColor: kDarkOnBackgroundColor,
-    ), colorScheme: ColorScheme.fromSwatch()
+    ),
+    colorScheme: ColorScheme.fromSwatch()
         .copyWith(
       primary: kDarkPrimaryColor,
       onPrimary: kAppGrayInDarkMode,
@@ -121,32 +123,31 @@ darkTheme(BuildContext context) => ThemeData(
       // surface: const Color(0xff1E2226), // linked in
       surface: const Color(0xff202021), // figma
       // surface: const Color(0xff242526), // facebook dark mode card
-    ).copyWith(background: kDarkBackgroundColor)
+    ).copyWith(background: kDarkBackgroundColor),
+
 
 );
 
 
 
 /// Light Theme Mode
-lightTheme(BuildContext context) => ThemeData(
-    // textTheme: Theme.of(context).textTheme.copyWith(
-    //   headlineMedium: const TextStyle(color: kAppFaintBlack),
-    //   headlineSmall: const TextStyle(color: kAppFaintBlack),
-    //   titleLarge: const TextStyle(color: kAppFaintBlack),
-    //
-    //
-    //   bodySmall: const TextStyle(color: kAppFaintBlack),
-    //   bodyMedium: const TextStyle(color: kAppFaintBlack),
-    //   bodyLarge: const TextStyle(color: kAppFaintBlack),
-    //   titleMedium: const TextStyle(color: kAppFaintBlack),
-    //   titleSmall: const TextStyle(color: kLightOnPrimaryColor),
-    // ),
-    textTheme: GoogleFonts.quicksandTextTheme(
-      Theme.of(context).textTheme
-    ).copyWith(
+lightTheme(BuildContext context) {
+  final textTheme = Theme.of(context).textTheme;
 
-    ),
-    fontFamily: 'AppFont',
+  return ThemeData(
+
+    brightness: Brightness.light,
+    textTheme: GoogleFonts.quicksandTextTheme(textTheme),
+    //     .copyWith(
+    //     headlineMedium: GoogleFonts.quicksand(color: kAppFaintBlack),
+    //     headlineSmall: GoogleFonts.quicksand(color: kAppFaintBlack),
+    //     titleLarge: GoogleFonts.quicksand(color: kAppFaintBlack),
+    //     bodySmall: GoogleFonts.quicksand(color: kAppFaintBlack),
+    //     bodyMedium: GoogleFonts.quicksand(color: kAppFaintBlack),
+    //     bodyLarge: GoogleFonts.quicksand(color: kAppFaintBlack),
+    //     titleMedium: GoogleFonts.quicksand(color: kAppFaintBlack),
+    //     titleSmall: GoogleFonts.quicksand(color: kAppFaintBlack),
+    // ),
     dividerColor: kLightOutlineColor,
     scaffoldBackgroundColor: kLightBackgroundColor,
     primaryColor: kLightPrimaryColor,
@@ -171,11 +172,12 @@ lightTheme(BuildContext context) => ThemeData(
         onBackground: kLightOnBackgroundColor,
         brightness: Brightness.light,
         outline: kLightOutlineColor,
-       surface: const Color(0xfff0c0c2)
+       surface: const Color(0xfff7f9fa)
 
     ).copyWith(background: kLightBackgroundColor)
 
 );
+}
 
 /// theme configuration
 // class ThemeConfig {

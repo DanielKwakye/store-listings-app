@@ -4,8 +4,8 @@ import 'package:paperless_listings/core/network/api_error.dart';
 import 'package:paperless_listings/core/network/network_provider.dart';
 import 'package:paperless_listings/core/storage/app_storage.dart';
 import 'package:paperless_listings/core/utils/constants.dart';
-import 'package:paperless_listings/features/users/data/models/user_model.dart';
-import 'package:paperless_listings/features/users/data/repositories/user_repository.dart';
+import 'package:paperless_listings/features/user/data/models/user_model.dart';
+import 'package:paperless_listings/features/user/data/repositories/user_repository.dart';
 
 class AuthRepository extends UserRepository {
 
