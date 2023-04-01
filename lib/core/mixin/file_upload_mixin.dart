@@ -21,7 +21,9 @@ class FileUploadMixin {
 
 
     final isMobile = defaultTargetPlatform == TargetPlatform.android || defaultTargetPlatform == TargetPlatform.iOS;
-    if(!isMobile) {
+
+    /// all non-mobile and mobile-web platforms enters here
+    if(!isMobile || kIsWeb) {
 
       FilePickerResult? filePickerResult = await FilePicker.platform.pickFiles(allowMultiple: false);
 
@@ -40,6 +42,8 @@ class FileUploadMixin {
       }
       return;
     }
+
+    /// strictly for native ios || android
     return showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext ctx) {
