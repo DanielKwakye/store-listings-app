@@ -53,34 +53,32 @@ class _GallerySubPageView extends WidgetView<GallerySubPage, GallerySubPageContr
 
         /// Returned animals data displays here
         if(state.status == BlocStatus.fetchAnimalsSuccessful){
-          return GlobalChildAnimatorWidget(
-            child: Container(
-              width: size.width,
-              padding: EdgeInsets.symmetric(horizontal: hPadding),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+          return Container(
+            width: size.width,
+            padding: EdgeInsets.symmetric(horizontal: hPadding),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
 
-                  Text('Gallery', style: theme.textTheme.titleMedium?.copyWith(color: kAppRed, fontWeight: FontWeight.bold),),
-                  const GlobalBorderWidget(paddingTop: 10, paddingBottom: 10,),
+                Text('Gallery', style: theme.textTheme.titleMedium?.copyWith(color: kAppRed, fontWeight: FontWeight.bold),),
+                const GlobalBorderWidget(paddingTop: 10, paddingBottom: 10,),
 
-                  Wrap(
-                    spacing: 20,
-                    runSpacing: 20,
-                    children: state.animals.map((item) {
-                      return ClipRRect(
-                        borderRadius: BorderRadius.circular(isMobile ? 8 : 0),
-                        child: SizedBox(
-                          width: width,
-                          height: height,
-                          child: GlobalNetworkImageWidget(imageUrl: item.url ?? '', fit: BoxFit.cover,),
-                        ),
-                      );
-                    }).toList(),
-                  )
-                ],
-              ),
+                Wrap(
+                  spacing: 20,
+                  runSpacing: 20,
+                  children: state.animals.map((item) {
+                    return ClipRRect(
+                      borderRadius: BorderRadius.circular(isMobile ? 8 : 0),
+                      child: SizedBox(
+                        width: width,
+                        height: height,
+                        child: GlobalNetworkImageWidget(imageUrl: item.url ?? '', fit: BoxFit.cover,),
+                      ),
+                    );
+                  }).toList(),
+                )
+              ],
             ),
           );
         }

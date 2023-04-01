@@ -17,7 +17,7 @@ class GalleryPlaceholderWidget extends StatelessWidget {
 
     final isMobile = getDeviceType(size) == DeviceScreenType.mobile;
     final width = isMobile ? size.width -  2 * hPadding : (size.width  - 2*hPadding - 40) / 3;
-    final height =  (9 * width) / 16;
+    final height = isMobile ? width : (9 * width) / 16;
 
     return Container(
       width: size.width,

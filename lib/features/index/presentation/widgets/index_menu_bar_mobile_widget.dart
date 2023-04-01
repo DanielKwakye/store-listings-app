@@ -75,7 +75,6 @@ class _IndexMenuBarMobileWidgetState extends State<IndexMenuBarMobileWidget> {
                     ListTile(
                       title: const Text('Menu', style: TextStyle(color: kAppWhite),),
                       onTap: () {
-                        context.read<IndexCubit>().activateMenu(option: IndexMenuOption.about);
                         animatedHide();
                       },
                       trailing: const Icon(Icons.keyboard_arrow_down , color:  kAppWhite,),

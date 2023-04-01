@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
-import 'package:file_selector/file_selector.dart';
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:paperless_listings/features/global/presentation/widgets/global_border_widget.dart';
@@ -17,6 +16,8 @@ class FileUploadMixin {
 
   final ImagePicker _picker = ImagePicker();
 
+
+
   Future<void> displaySelectFileOptions(BuildContext context, { Function(File)? onFilePicked,  Function(Uint8List)? onFilePickedAsBytes, onlyImage = false, onlyFiles= false}) async {
 
 
@@ -32,7 +33,7 @@ class FileUploadMixin {
         if(selectedFileInBytes != null) {
           onFilePickedAsBytes?.call(selectedFileInBytes);
         }else {
-           // for macOs check if there's a file path
+           // for desktop (macOs / windows) check if there's a file path
            final selectedFileInAsPath = filePickerResult.files.first.path;
            if(selectedFileInAsPath != null){
              onFilePicked?.call(File(selectedFileInAsPath));
