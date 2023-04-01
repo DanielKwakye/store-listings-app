@@ -296,9 +296,10 @@ class KYCFormWidgetController extends State<KYCFormWidget> with FileUploadMixin 
       frontIdImage.value = {
         'asFile' : file
       };
-    }, onFilePickedAsBytes: (file) {
+    }, onFilePickedAsBytes: (fileAsBlob) {
       frontIdImage.value = {
-        'asBytes' : file
+        'asBytes' : fileAsBlob,
+        // 'path': path
       };
     }, onlyImage: true);
   }
@@ -308,9 +309,10 @@ class KYCFormWidgetController extends State<KYCFormWidget> with FileUploadMixin 
       backIdImage.value = {
         'asFile' : file
       };
-    }, onFilePickedAsBytes: (file) {
+    }, onFilePickedAsBytes: (fileAsBlob) {
       backIdImage.value = {
-        'asBytes' : file
+        'asBytes' : fileAsBlob,
+        // 'path': path
       };
     }, onlyImage: true);
   }
